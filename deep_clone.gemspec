@@ -1,14 +1,14 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'deep_clone/version'
+require 'full_clone/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "deep_clone"
+  spec.name          = "full_clone"
   spec.version       = DeepClone::VERSION
   spec.authors       = ["Peter Camilleri"]
   spec.email         = ["peter.c.camilleri@gmail.com"]
-  spec.description   = "A (safe/no exception) clone variant that performs a deep, recursive copy."
+  spec.description   = "A (safe/no exceptions) clone variant that performs a deep, recursive copy."
   spec.summary       = "A clone variant that performs a deep copy."
   spec.homepage      = "http://teuthida-technologies.com/"
   spec.license       = "MIT"

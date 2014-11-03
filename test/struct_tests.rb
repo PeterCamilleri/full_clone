@@ -1,6 +1,6 @@
 # coding: utf-8
 
-require_relative '../lib/deep_clone'
+require_relative '../lib/full_clone'
 require          'minitest/autorun'
 
 #Test the monkey patches applied to the Object class.
@@ -24,7 +24,7 @@ class StructDeepCloneTester < MiniTest::Unit::TestCase
   def test_basic_deep_cloning
     sa = "North"
     simple1 = SimpleStruct.new(sa, 5, nil)
-    simple2 = simple1.deep_clone
+    simple2 = simple1.full_clone
 
     assert_equal(simple1.iva, simple2.iva)
     assert_equal(simple1.ivb, 5)
@@ -41,10 +41,10 @@ class StructDeepCloneTester < MiniTest::Unit::TestCase
   def test_with_exclusion
     sa = "North"
     simple1 = SimpleStruct.new(sa, 5, nil)
-    simple1.define_singleton_method(:deep_clone_exclude) {[:iva]}
-    assert_equal(simple1.singleton_methods, [:deep_clone_exclude])
-    simple2 = simple1.deep_clone
-    assert_equal(simple2.singleton_methods, [:deep_clone_exclude])
+    simple1.define_singleton_method(:full_clone_exclude) {[:iva]}
+    assert_equal(simple1.singleton_methods, [:full_clone_exclude])
+    simple2 = simple1.full_clone
+    assert_equal(simple2.singleton_methods, [:full_clone_exclude])
 
     assert_equal(simple1.iva, simple2.iva)
     assert_equal(simple1.ivb, 5)
@@ -55,7 +55,7 @@ class StructDeepCloneTester < MiniTest::Unit::TestCase
   def test_with_direct_looping
     simple1 = SimpleStruct.new('East', 5, nil)
     simple1.ivc = simple1
-    simple2 = simple1.deep_clone
+    simple2 = simple1.full_clone
 
     assert_equal(simple2.object_id, simple2.ivc.object_id)
     refute_equal(simple1.object_id, simple2.ivc.object_id)
@@ -63,11 +63,11 @@ class StructDeepCloneTester < MiniTest::Unit::TestCase
 
   def test_with_direct_looping_and_exclusion
     simple1 = SimpleStruct.new('East', 5, nil)
-    simple1.define_singleton_method(:deep_clone_exclude) {[:ivc]}
-    assert_equal(simple1.singleton_methods, [:deep_clone_exclude])
+    simple1.define_singleton_method(:full_clone_exclude) {[:ivc]}
+    assert_equal(simple1.singleton_methods, [:full_clone_exclude])
     simple1.ivc = simple1
-    simple2 = simple1.deep_clone
-    assert_equal(simple2.singleton_methods, [:deep_clone_exclude])
+    simple2 = simple1.full_clone
+    assert_equal(simple2.singleton_methods, [:full_clone_exclude])
 
     refute_equal(simple2.object_id, simple2.ivc.object_id)
     assert_equal(simple1.object_id, simple2.ivc.object_id)
@@ -77,7 +77,7 @@ class StructDeepCloneTester < MiniTest::Unit::TestCase
     simple1 = SimpleStruct.new('East', 5, nil)
     simple3 = SimpleStruct.new('West', 6, simple1)
     simple1.ivc = simple3
-    simple2 = simple1.deep_clone
+    simple2 = simple1.full_clone
 
     assert_equal(simple2.object_id, simple2.ivc.ivc.object_id)
   end

@@ -1,11 +1,11 @@
-require_relative 'deep_clone/version'
-require_relative 'deep_clone/object'
-require_relative 'deep_clone/array'
-require_relative 'deep_clone/hash'
-require_relative 'deep_clone/struct'
+require_relative 'full_clone/version'
+require_relative 'full_clone/object'
+require_relative 'full_clone/array'
+require_relative 'full_clone/hash'
+require_relative 'full_clone/struct'
 
 module DeepClone
-  def deep_clone(_progress={})
+  def full_clone(_progress={})
     self
   end
 end
