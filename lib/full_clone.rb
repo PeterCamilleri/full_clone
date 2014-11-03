@@ -4,32 +4,32 @@ require_relative 'full_clone/array'
 require_relative 'full_clone/hash'
 require_relative 'full_clone/struct'
 
-module DeepClone
+module FullClone
   def full_clone(_progress={})
     self
   end
 end
 
 class Numeric
-  include DeepClone
+  include FullClone
 end
 
 class NilClass
-  include DeepClone
+  include FullClone
 end
 
 class TrueClass
-  include DeepClone
+  include FullClone
 end
 
 class FalseClass
-  include DeepClone
+  include FullClone
 end
 
 class Symbol
-  include DeepClone
+  include FullClone
 end
 
 class Regexp
-  include DeepClone
+  include FullClone
 end

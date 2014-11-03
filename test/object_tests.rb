@@ -4,7 +4,7 @@ require_relative '../lib/full_clone'
 require          'minitest/autorun'
 
 #Test the monkey patches applied to the Object class.
-class ObjectDeepCloneTester < MiniTest::Unit::TestCase
+class ObjectFullCloneTester < MiniTest::Unit::TestCase
 
   class SimpleClass
     attr_accessor :iva

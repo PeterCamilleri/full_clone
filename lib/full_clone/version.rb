@@ -1,3 +1,3 @@
-module DeepClone
-  VERSION = "0.0.1"
+module FullClone
+  VERSION = "0.0.2"
 end

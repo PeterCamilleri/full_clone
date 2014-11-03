@@ -4,7 +4,7 @@ require_relative '../lib/full_clone'
 require          'minitest/autorun'
 
 #Test the monkey patches applied to the Object class.
-class ArrayDeepCloneTester < MiniTest::Unit::TestCase
+class ArrayFullCloneTester < MiniTest::Unit::TestCase
 
   #Special initialize to track rake progress.
   def initialize(*all)

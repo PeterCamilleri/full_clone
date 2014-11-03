@@ -4,7 +4,7 @@ require_relative '../lib/full_clone'
 require          'minitest/autorun'
 
 #Test the monkey patches applied to the Object class.
-class StructDeepCloneTester < MiniTest::Unit::TestCase
+class StructFullCloneTester < MiniTest::Unit::TestCase
 
   SimpleStruct = Struct.new(:iva, :ivb, :ivc)
 
