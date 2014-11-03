@@ -4,7 +4,7 @@ The standard clone method creates a fresh instance of most (non-scalar) objects
 but does not clone internal state. This internal state remains aliased in the
 cloned copy. The full_clone method digs deep and makes copies of these internal
 variables, not just arrays and hashes. It also allows classes to specify an
-exclusion list of variable that are not to be processed.
+exclusion list of variables that are not to be processed.
 
 Add this line to your application's Gemfile:
 
