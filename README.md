@@ -1,8 +1,10 @@
 # DeepClone
 
-TODO: Write a gem description
-
-## Installation
+The standard clone method creates a fresh instance of most (non-scalar) objects
+but does not clone internal state. This internal state remains aliased in the
+cloned copy. The deep_clone method digs deep and makes copies of these internal
+variables. It also allows classes to specify an exclusion list of variable that
+are not to be processed.
 
 Add this line to your application's Gemfile:
 
@@ -18,7 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+    require 'deep_clone'
+
+then, in those places where regular clone was problematic, use:
+
+    foo = my_object.deep_clone
+
+instead of
+
+    foo = my_object.clone
+
+To exclude some instance variables from the deep cloning process, define a
+deep_clone_exclude method in the required class:
+
+def deep_clone_exclude
+  [:@bad_var1, :@bad_var2, :@bad_var_etc]
+end
+
 
 ## Contributing
 

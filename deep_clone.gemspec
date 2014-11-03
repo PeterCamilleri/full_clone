@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = DeepClone::VERSION
   spec.authors       = ["Peter Camilleri"]
   spec.email         = ["peter.c.camilleri@gmail.com"]
-  spec.description   = "A (safe/no exception) clone variant that performs a deep copy."
+  spec.description   = "A (safe/no exception) clone variant that performs a deep, recursive copy."
   spec.summary       = "A clone variant that performs a deep copy."
   spec.homepage      = "http://teuthida-technologies.com/"
   spec.license       = "MIT"
