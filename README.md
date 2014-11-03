@@ -33,9 +33,9 @@ instead of
 To exclude some instance variables from the deep cloning process, define a
 full_clone_exclude method in the required class:
 
-def full_clone_exclude
-  [:@bad_var1, :@bad_var2, :@bad_var_etc]
-end
+    def full_clone_exclude
+      [:@bad_var1, :@bad_var2, :@bad_var_etc]
+    end
 
 
 ## Contributing
