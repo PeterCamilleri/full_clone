@@ -11,3 +11,10 @@ Rake::TestTask.new do |t|
                   "test/struct_tests.rb"]
   t.verbose    = false
 end
+
+desc "What version of full_clone is this?"
+task :vers do |t|
+  puts
+  puts "full_clone version = #{FullClone::VERSION}"
+end
+
