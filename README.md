@@ -1,4 +1,4 @@
-# DeepClone
+# FullClone
 
 The standard clone method creates a fresh instance of most (non-scalar) objects
 but does not clone internal state. This internal state remains aliased in the
