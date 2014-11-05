@@ -5,7 +5,7 @@ class Array
     progress[object_id] = result = clone
     exclude = full_clone_exclude
 
-    each_index.each do |name|
+    each_index do |name|
 
       unless exclude.include?(name)
         value = result[name]
