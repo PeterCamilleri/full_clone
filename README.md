@@ -38,6 +38,15 @@ full_clone_exclude method in the required class:
     end
 
 
+## Notes
+
+The full_clone gem tracks its progress and handles data objects that
+contain loops, cycles, and other forms of recursion. In order to do this,
+it relies heavily on the object_id property of the data being copied.
+If object_id is broken, then full_clone and hashes and ... will also be
+broken!
+
+
 ## Contributing
 
 1. Fork it
