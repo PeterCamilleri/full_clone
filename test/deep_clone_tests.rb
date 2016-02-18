@@ -1,23 +1,15 @@
 # coding: utf-8
 
 require_relative '../lib/full_clone'
+gem              'minitest'
 require          'minitest/autorun'
+require          'minitest_visible'
 
 #Test the monkey patches applied to the Object class.
-class FullCloneTester < MiniTest::Unit::TestCase
+class FullCloneTester < Minitest::Test
 
-  #Special initialize to track rake progress.
-  def initialize(*all)
-    $do_this_only_one_time = "" unless defined? $do_this_only_one_time
-
-    if $do_this_only_one_time != __FILE__
-      puts
-      puts "Running test file: #{File.split(__FILE__)[1]}"
-      $do_this_only_one_time = __FILE__
-    end
-
-    super(*all)
-  end
+  #Track mini-test progress.
+  include MinitestVisible
 
   def test_for_safe_value_cloning
     assert_equal((6).full_clone, 6)
