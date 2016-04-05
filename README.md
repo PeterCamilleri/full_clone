@@ -6,6 +6,24 @@ cloned copy. The full_clone method digs deep and makes copies of these internal
 variables, not just arrays and hashes. It also allows classes to specify an
 exclusion list of variables that are not to be processed.
 
+This comprehensive approach creates another issue to be resolved. In Ruby, if an
+attempt is made to clone an immutable data item like a number, an error occurs.
+The justification for this uncharacteristic strictness is not at all clear, but
+it does mean that the clone operation must be applied with great care.
+
+Unlike the standard clone method, the full\_clone method does not throw an
+exception when it sees un-clonable value objects like 42 or true. These values
+simply return themselves. This is correct because those types of objects do
+not _need_ to be cloned. Instead of having a fit, the code just works!
+
+Another issue that this gem deals with is that of data with looping reference
+chains. To handle this, the code tracks object ID values and does not re-clone
+data that has already been cloned. Thus even nasty edge cases are handled
+without any special effort on the part of the application programmer.
+
+
+## Installation
+
 Add this line to your application's Gemfile:
 
     gem 'full_clone'
@@ -33,10 +51,20 @@ instead of
 To exclude some instance variables from the deep cloning process, define a
 full_clone_exclude method in the required class:
 
-    def full_clone_exclude
-      [:@bad_var1, :@bad_var2, :@bad_var_etc]
-    end
+```ruby
+def full_clone_exclude
+  [:@bad_var1, :@bad_var2, :@bad_var_etc]
+end
+```
+This also can be applied to arrays and hashes. In this case, it is possible to
+define a singleton method on the cloned data. Then the exclude method would
+return an array of array indexes or hash keys to be omitted from the full clone
+recursion. Here is an example that never clones the first two elements of the
+array:
 
+```ruby
+my_array.define_singleton_method(:full_clone_exclude) { [0, 1] }
+```
 
 ## Notes
 
@@ -49,8 +77,15 @@ broken!
 
 ## Contributing
 
-1. Fork it
+#### Plan A
+
+1. Fork it ( https://github.com/PeterCamilleri/full_clone/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+#### Plan B
+
+Go to the GitHub repository and raise an issue calling attention to some
+aspect that could use some TLC or a suggestion or an idea.
