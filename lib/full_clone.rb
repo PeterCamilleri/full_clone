@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require_relative 'full_clone/version'
 require_relative 'full_clone/object'
 require_relative 'full_clone/array'
