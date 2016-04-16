@@ -21,7 +21,7 @@ chains. To handle this, the code tracks object ID values and does not re-clone
 data that has already been cloned. Thus even nasty edge cases are handled
 without any special effort on the part of the application programmer.
 
-## Family Tree
+## Family Overview
 
 This gem is a member of a family of four gems that all provide data copying
 services in a safe, easy to use format. The following outlines the available
