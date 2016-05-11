@@ -58,6 +58,11 @@ Or install it yourself as:
 
     $ gem install full_clone
 
+The safe_dup gem is at: ( https://rubygems.org/gems/safe_dup )
+<br>The safe_clone gem is at: ( https://rubygems.org/gems/safe_clone )
+<br>The full_dup gem is at: ( https://rubygems.org/gems/full_dup )
+<br>The full_clone gem is at: ( https://rubygems.org/gems/full_clone )
+
 ## Usage
 
     require 'full_clone'
