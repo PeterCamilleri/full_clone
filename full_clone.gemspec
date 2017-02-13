@@ -10,17 +10,16 @@ Gem::Specification.new do |spec|
   spec.email         = ["peter.c.camilleri@gmail.com"]
   spec.description   = "A (safe/no exceptions) clone variant that performs a deep, recursive copy."
   spec.summary       = "A clone variant that performs a deep copy."
-  spec.homepage      = "http://teuthida-technologies.com/"
+  spec.homepage      = "https://github.com/PeterCamilleri/full_clone"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency 'minitest_visible', ">= 0.1.0"
-  spec.add_development_dependency 'mini_readline', ">= 0.4.8"
+  spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency 'minitest', "~> 4.7.5"
+  spec.add_development_dependency 'minitest', "~> 5.7"
+  spec.add_development_dependency 'minitest_visible', "~> 0.1"
 
 end
