@@ -24,7 +24,7 @@ class FullCloneTester < Minitest::Test
     assert_equal((false).full_clone, false)
     assert_equal((false).full_clone.object_id, (false).object_id)
 
-    assert_equal((nil).full_clone, nil)
+    assert_nil((nil).full_clone)
     assert_equal((nil).full_clone.object_id, (nil).object_id)
 
     rex = /ABC/
