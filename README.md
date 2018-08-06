@@ -6,6 +6,8 @@ cloned copy. The full_clone method digs deep and makes copies of these internal
 variables, not just arrays and hashes. It also allows classes to specify an
 exclusion list of variables that are not to be processed.
 
+New for version 0.0.10, now 84% faster (at least full_dup was in my tests).
+
 This comprehensive approach creates another issue to be resolved. In Ruby, if an
 attempt is made to clone an immutable data item like a number, an error occurs.
 The justification for this uncharacteristic strictness is not at all clear, but
