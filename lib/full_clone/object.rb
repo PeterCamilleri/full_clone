@@ -10,14 +10,20 @@ class Object
     progress[object_id] = result = clone
     exclude = full_clone_exclude
 
-    instance_variables.each do |name|
-
-      unless exclude.include?(name)
+    if exclude.empty?
+      instance_variables.each do |name|
         value = result.instance_variable_get(name)
         value = progress[value.object_id] || value.full_clone(progress)
         result.instance_variable_set(name, value)
       end
-
+    else
+      instance_variables.each do |name|
+        unless exclude.include?(name)
+          value = result.instance_variable_get(name)
+          value = progress[value.object_id] || value.full_clone(progress)
+          result.instance_variable_set(name, value)
+        end
+      end
     end
 
     result
