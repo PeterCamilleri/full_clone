@@ -12,6 +12,11 @@ Rake::TestTask.new do |t|
   t.verbose    = false
 end
 
+desc "Run a scan for smelly code!"
+task :reek do |t|
+  `reek --no-color lib > reek.txt`
+end
+
 desc "Run an IRB Session with full_clone loaded."
 task :console do
   system "ruby irbt.rb local"
