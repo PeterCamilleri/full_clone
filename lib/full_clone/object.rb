@@ -2,11 +2,24 @@
 
 # Add full_clone support to all objects.
 class Object
-  include FullClone
 
   #By default, no instance variables are excluded.
   def full_clone_exclude
     []
+  end
+
+  #The common part of the full_clone method.
+  def full_clone(progress={})
+    progress[object_id] = result = clone
+    exclude = full_clone_exclude
+
+    if exclude.empty?
+      result.full_clone_no_exclusions(progress)
+    else
+      result.full_clone_with_exclusions(progress, exclude)
+    end
+
+    result
   end
 
   # Do a full_clone with no exclusions

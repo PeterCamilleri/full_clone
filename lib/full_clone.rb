@@ -2,7 +2,6 @@
 
 # A deep, safe, recursive variant of the clone method. The full_clone method.
 
-require_relative 'full_clone/use_full_clone'
 require_relative 'full_clone/use_self'
 require_relative 'full_clone/use_clone'
 require_relative 'full_clone/version'

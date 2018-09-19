@@ -2,7 +2,6 @@
 
 # Add full_clone support to all arrays.
 class Array
-  include FullClone
 
   # Do a full_clone with no exclusions
   def full_clone_no_exclusions(progress)
