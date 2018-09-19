@@ -14,13 +14,4 @@ lib/full_clone/hash.rb -- 7 warnings:
   [11, 18]:DuplicateMethodCall: Hash#full_clone calls 'value.object_id' 2 times [https://github.com/troessner/reek/blob/v5.0.2/docs/Duplicate-Method-Call.md]
   [1]:IrresponsibleModule: Hash has no descriptive comment [https://github.com/troessner/reek/blob/v5.0.2/docs/Irresponsible-Module.md]
   [4]:TooManyStatements: Hash#full_clone has approx 11 statements [https://github.com/troessner/reek/blob/v5.0.2/docs/Too-Many-Statements.md]
-lib/full_clone/object.rb -- 8 warnings:
-  [14, 20]:DuplicateMethodCall: Object#full_clone calls 'instance_variables.each' 2 times [https://github.com/troessner/reek/blob/v5.0.2/docs/Duplicate-Method-Call.md]
-  [16, 23]:DuplicateMethodCall: Object#full_clone calls 'progress[value.object_id]' 2 times [https://github.com/troessner/reek/blob/v5.0.2/docs/Duplicate-Method-Call.md]
-  [15, 22]:DuplicateMethodCall: Object#full_clone calls 'result.instance_variable_get(name)' 2 times [https://github.com/troessner/reek/blob/v5.0.2/docs/Duplicate-Method-Call.md]
-  [17, 24]:DuplicateMethodCall: Object#full_clone calls 'result.instance_variable_set(name, value)' 2 times [https://github.com/troessner/reek/blob/v5.0.2/docs/Duplicate-Method-Call.md]
-  [16, 23]:DuplicateMethodCall: Object#full_clone calls 'value.full_clone(progress)' 2 times [https://github.com/troessner/reek/blob/v5.0.2/docs/Duplicate-Method-Call.md]
-  [16, 23]:DuplicateMethodCall: Object#full_clone calls 'value.object_id' 2 times [https://github.com/troessner/reek/blob/v5.0.2/docs/Duplicate-Method-Call.md]
-  [1]:IrresponsibleModule: Object has no descriptive comment [https://github.com/troessner/reek/blob/v5.0.2/docs/Irresponsible-Module.md]
-  [9]:TooManyStatements: Object#full_clone has approx 11 statements [https://github.com/troessner/reek/blob/v5.0.2/docs/Too-Many-Statements.md]
-22 total warnings
+14 total warnings
