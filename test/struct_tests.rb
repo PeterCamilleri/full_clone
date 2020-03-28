@@ -3,15 +3,11 @@
 require_relative '../lib/full_clone'
 gem              'minitest'
 require          'minitest/autorun'
-require          'minitest_visible'
 
 #Test the monkey patches applied to the Object class.
 class StructFullCloneTester < Minitest::Test
 
   SimpleStruct = Struct.new(:iva, :ivb, :ivc)
-
-  #Track mini-test progress.
-  include MinitestVisible
 
   def test_basic_deep_cloning
     sa = "North"
